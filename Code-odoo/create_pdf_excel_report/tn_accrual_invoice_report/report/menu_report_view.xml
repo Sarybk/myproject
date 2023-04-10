@@ -1,0 +1,34 @@
+<odoo>
+	<record id="paperformat_custom"  model="report.paperformat">
+		 <field name="name">A4 Custom</field>
+		 <field name="default" eval="True"/>
+		 <field name="format">A4</field>
+		 <field name="page_height">0</field>
+		 <field name="page_width">0</field>
+		 <field name="orientation">Landscape</field>
+		 <field name="margin_top">5</field>
+		 <field name="margin_bottom">13</field>
+		 <field name="margin_left">7</field>
+		 <field name="margin_right">7</field>
+		 <field name="header_line" eval="False"/>
+		 <field name="header_spacing">15</field>
+		 <field name="dpi">90</field>
+
+	</record>
+    <record id="report_accrual_invoice" model="ir.actions.report">
+         <field name="name">Accrual Invoice</field>
+         <field name="model">accrual.invoice</field>
+         <field name="report_type">qweb-pdf</field>
+         <field name="paperformat_id" ref="tn_accrual_invoice_report.paperformat_custom"/>
+         <field name="report_file">tn_accrual_invoice_report.accrual_invoice_template.xml</field>
+         <field name="report_name">tn_accrual_invoice_report.accrual_invoice_template</field>
+    </record>
+
+	 <record id="report_accrual_invoice_xlsx" model="ir.actions.report">
+         <field name="name">Accrual Invoice Excel</field>
+         <field name="model">accrual.invoice</field>
+         <field name="report_type">xlsx</field>
+		 <field name="report_name">tn_accrual_invoice_report.accrual_invoice_xls</field> 
+         <field name="report_file">tn_accrual_invoice_report.accrual_invoice_xls</field>
+    </record>
+</odoo>

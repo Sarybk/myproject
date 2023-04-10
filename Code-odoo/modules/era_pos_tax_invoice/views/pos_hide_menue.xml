@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record model="ir.ui.view" id="view_pos_config_kanban_inherit">
+            <field name="name">pos.config.kanban.inherit</field>
+            <field name="model">pos.config</field>
+             <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+              <!-- hide button pos Order in kanban view-->
+            <field name="arch" type="xml">
+               <a name="%(point_of_sale.action_pos_order_filtered)d" position="attributes">
+                    <attribute name="groups">era_pos_tax_invoice.group_menu_pos_order</attribute>
+               </a>
+                <!-- hide button pos session in kanban view-->
+               <a name="%(point_of_sale.action_pos_session_filtered)d" position="attributes">
+                   <attribute name="groups">era_pos_tax_invoice.group_menu_pos_session</attribute>
+               </a>
+
+               <xpath expr="//button[@name='open_existing_session_cb']" position="replace">
+                    
+                   <button t-if="_.contains(['opened', 'closing_control'], record.current_session_state.raw_value)" class="btn btn-secondary" name="open_existing_session_cb" type="object" groups="point_of_sale.group_pos_manager">Close</button>
+               </xpath>
+
+            </field>
+        </record>
+        <!-- hide menue pos Orders use group-->
+        <record model="ir.ui.menu" id="point_of_sale.menu_point_ofsale">
+               <field name="groups_id" eval="[(6,0,[ref('group_menu_pos_order')])]"/>
+        </record>
+        <!-- hide menue pos Sessions use group-->
+        <record model="ir.ui.menu" id="point_of_sale.menu_pos_session_all">
+               <field name="groups_id" eval="[(6,0,[ref('group_menu_pos_session')])]"/>
+        </record>
+    </data>
+</odoo>
+                    

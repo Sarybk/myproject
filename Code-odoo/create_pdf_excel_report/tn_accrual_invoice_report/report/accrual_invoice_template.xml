@@ -1,0 +1,243 @@
+<odoo>
+    <!--Template for accrual_invoice -->
+    <template id="accrual_invoice_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                   <style>
+                        .same-line {
+                            height: 10px; /*childrens it's all absolute position, so must set height*/
+                            position: relative;
+                        }
+                        .same-line div{
+                            display: inline-block;
+                            position: absolute;
+                        }
+                        .on-the-left{
+                         left: 0%;
+                         right: 0%;
+                         text-align: left;
+  <!--                         font-size:25px;
+   -->                      }
+                        .on-the-center{
+                            left: 0%;
+                            right: 0%;
+                            text-align: center;
+  <!--                            font-size:25px;
+   -->                      }
+                        .on-the-right{
+                           right: 0px;
+  <!--                           font-size:25px;
+   -->                      }
+                   </style>
+                   <!-- <div>
+                        <img t-attf-src="data:image/*;base64,{{oo}}" style="max-width: 350px;max-height: 100px;" 
+                                                                                    class="float-left"/>
+                       
+                    </div> -->
+                    <br/><br/><br/>
+                    <div>
+                    <span t-esc="date"/>
+                    <h3 style="text-align:center;">Accrual Invoice</h3>
+                    </div>
+                   <table class="table table-bordered mt32">
+                        <t t-set="total_prv_year" t-value="0"/>
+                        <t t-set="total_next_year" t-value="0.0"/>
+                        <t t-set="total_jan" t-value="0"/>
+                        <t t-set="total_feb" t-value="0"/>
+                        <t t-set="total_mar" t-value="0"/>
+                        <t t-set="total_apr" t-value="0"/>
+                        <t t-set="total_may" t-value="0"/>
+                        <t t-set="total_jun" t-value="0"/>
+                        <t t-set="total_jul" t-value="0"/>
+                        <t t-set="total_aug" t-value="0"/>
+                        <t t-set="total_sep" t-value="0"/>
+                        <t t-set="total_oct" t-value="0"/>
+                        <t t-set="total_nov" t-value="0"/>
+                        <t t-set="total_dec" t-value="0"/>
+                        <thead>
+                        <tr>
+                              <th>Customers</th>
+                              <th>Previouse balance</th>
+                              <th>Jan</th>
+                              <th>Feb</th>
+                              <th>Mar</th>
+                              <th>Apr</th>
+                              <th>May</th>
+                              <th>Jun</th>
+                              <th>Jul</th>
+                              <th>Aug</th>
+                              <th>Sep</th>
+                              <th>Oct</th>
+                              <th>Nov</th>
+                              <th>Dec</th>
+                              <t t-foreach="dict_year.keys()" t-as="ky"> 
+                                <th><span t-esc="ky"/></th>
+                              </t>
+                        </tr>
+                      </thead>
+                    
+                    <t t-foreach="result.keys()" t-as="k">
+                        <tr>
+                          <td><span t-esc="k"/></td>
+                            <td>
+                              <span t-esc="sum([line['previus'] for line in result[k] if k == line['partner'] if 'previus' in line])"/>
+                              <t t-set="total_prv_year" t-value="total_prv_year + sum([line['previus'] for line in result[k] if k == line['partner'] if 'previus' in line])"/>
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'jan' in line">
+                                        <span t-esc="line['jan']"/>
+                                        <t t-set="total_jan" t-value="total_jan + line['jan']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'feb' in line">
+                                        <span t-esc="line['feb']"/>
+                                        <t t-set="total_feb" t-value="total_feb + line['feb']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'mar' in line">
+                                        <span t-esc="line['mar']"/>
+                                        <t t-set="total_mar" t-value="total_mar + line['mar']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'apr' in line">
+                                        <span t-esc="line['apr']"/>
+                                        <t t-set="total_apr" t-value="total_apr + line['apr']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'may' in line">
+                                        <span t-esc="line['may']"/>
+                                        <t t-set="total_may" t-value="total_may + line['may']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'jun' in line">
+                                        <span t-esc="line['jun']"/>
+                                        <t t-set="total_jun" t-value="total_jun + line['jun']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                           <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'jul' in line">
+                                        <span t-esc="line['jul']"/>
+                                        <t t-set="total_jul" t-value="total_jul + line['jul']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'aug' in line">
+                                        <span t-esc="line['aug']"/>
+                                        <t t-set="total_aug" t-value="total_aug + line['aug']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'sep' in line">
+                                        <span t-esc="line['sep']"/>
+                                        <t t-set="total_sep" t-value="total_sep + line['sep']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'oct' in line">
+                                        <span t-esc="line['oct']"/>
+                                        <t t-set="total_oct" t-value="total_oct + line['oct']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'nov' in line">
+                                        <span t-esc="line['nov']"/>
+                                        <t t-set="total_nov" t-value="total_nov + line['nov']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            <td>
+                               <t t-foreach="result[k]" t-as="line">
+                                  <t t-if="k == line['partner']">
+                                     <t t-if="'dec' in line">
+                                        <span t-esc="line['dec']"/>
+                                        <t t-set="total_dec" t-value="total_dec + line['dec']"/>
+                                     </t>
+                                  </t>
+                               </t> 
+                            </td>
+                            
+                            <t t-foreach="dict_year.keys()" t-as="ky">         
+                                <td><span t-esc="sum([line['amount'] for line in dict_year[ky] if str(line['year']) in ky if k == line['partner']])"/></td>
+                                <!-- <t t-set="total_next_year" t-value="sum([line['amount'] for line in dict_year[ky]])"/>
+                                <td><span t-esc="total_next_year"/></td> -->
+                            </t>
+                            
+                        </tr>
+                     </t>
+                     
+                        <tr>
+                            <td>Total</td>
+                            <td><span t-esc=" total_prv_year"></span></td>
+                            <td><span t-esc="total_jan"></span></td>
+                            <td><span t-esc="total_feb"></span></td>
+                            <td><span t-esc="total_mar"></span></td>
+                            <td><span t-esc="total_apr"></span></td>
+                            <td><span t-esc="total_may"></span></td>
+                            <td><span t-esc="total_jun"></span></td>
+                            <td><span t-esc="total_jul"></span></td>
+                            <td><span t-esc="total_aug"></span></td>
+                            <td><span t-esc="total_sep"></span></td>
+                            <td><span t-esc="total_oct"></span></td>
+                            <td><span t-esc="total_nov"></span></td>
+                            <td><span t-esc="total_dec"></span></td>
+                            <t t-foreach="dict_year.keys()" t-as="ky">         
+                                <t t-set="total_next_year" t-value="sum([line['amount'] for line in dict_year[ky]])"/>
+                                <td><span t-esc="total_next_year"/></td>
+                            </t>
+                        </tr>
+                  </table>
+              </div>                                                
+           </t>
+        </t>
+    </template>
+</odoo>
+

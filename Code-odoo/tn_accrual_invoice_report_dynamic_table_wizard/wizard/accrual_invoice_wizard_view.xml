@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="accrual_invoice_view_form" model="ir.ui.view">
+        <field name="name">accrual.invoice.view.form</field>
+        <field name="model">accrual.invoice</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button class="btn btn-sm btn-default fa fa-ban" special="cancel" string="Close"/>
+                    <button  name="action_print" string="Print" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+  <record id='accrual_invoice_action' model='ir.actions.act_window'>
+        <field name="name">Accrual invoice</field>
+        <field name="res_model">accrual.invoice</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="accrual_invoice_view_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="accrual_invoice_menu" name="Accrual Invoice" parent="itsys_real_estate.real_estate_report_menu" action="accrual_invoice_action" />
+</odoo>

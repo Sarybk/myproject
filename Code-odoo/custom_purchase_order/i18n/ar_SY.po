@@ -1,0 +1,386 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_purchase_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-06 07:12+0000\n"
+"PO-Revision-Date: 2022-12-06 07:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.report_invoice_custom
+msgid "<b>Net Invoice</b>"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.res_config_settings_payment_view_form
+msgid "<span class=\"o_form_label\">Product Bill line invoice:</span>"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__account_move_id
+msgid "Account Move"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__ac_payment_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__ac_payment_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__ac_payment_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_partner__property_account_payment_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_users__property_account_payment_id
+msgid "Account Payment"
+msgstr "حساب الدفعية"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__adv_payment
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__advance_pay
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__is_payment
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__adv_payment
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__advance_pay
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__is_payment
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__adv_payment
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__advance_pay
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__is_payment
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.report_invoice_custom
+msgid "Advance Payment"
+msgstr "الدفعية المقدمة"
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.res_config_settings_payment_view_form
+msgid "Advance Payment Products"
+msgstr "منتجات الدفعات المقدمة"
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/custom_account_move.py:0
+#, python-format
+msgid "Already created invoice line"
+msgstr "مسبقا تم انشاء  خط الفاتورة"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__account_move__payment_select__amount
+msgid "Amount"
+msgstr "الكمية"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__retained_status__to_retained
+msgid "Availble Retained"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Cancel"
+msgstr ""
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/custom_account_move.py:0
+#, python-format
+msgid "Check boolean advance payment before create"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__state2__supply_chain
+msgid "Chief Executive Officer"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:res.groups,name:custom_purchase_order.purchase_group_chief_execute_officer
+msgid "Chife Execute Officer"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Confirm CEO"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Confirm Order"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__state2__ceo_approve
+msgid "Confirm Purchase Order"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Create Invoice Retained"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_view_account_move_form
+msgid "Create InvoiceLine"
+msgstr "انشاء الدفعيات"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__is_invoiced
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__is_invoiced
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__is_invoiced
+msgid "Create invoice"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__discount_po
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__discount_po
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__discount_po
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.report_invoice_custom
+msgid "Discount"
+msgstr "الخصم"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__is_first_paied
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__is_first_paied
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__is_first_paied
+msgid "First Paied"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__account_move__payment_select__first_payment
+msgid "First Payment"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__fixed_amount
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__fixed_amount
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__fixed_amount
+msgid "Fixed Amount"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order_line__is_requisition
+msgid "IS Requisition"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__is_requisition
+msgid "Is Requisition"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__net_invoice
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__net_invoice
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__net_invoice
+msgid "Net Invoice"
+msgstr "صافي الفاتورة"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__state2__draft
+msgid "New"
+msgstr ""
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/acc.py:0
+#: code:addons/custom_purchase_order/models/custom_account_move.py:0
+#, python-format
+msgid "No account defined for product \"%s\"."
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__retained_status__no
+msgid "Nothing to Retained"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_tree
+msgid "PO Status"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__test
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__test
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__test
+msgid "Paied amount total"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_config_settings__payment_product_id
+msgid "Payment Product"
+msgstr "منتج الدفعية "
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__payment_select
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__payment_select
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__payment_select
+msgid "Payment Select"
+msgstr "نوع الدفعية"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__payment_total
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__payment_total
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__payment_total
+msgid "Payment Total"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__percentage
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__percentage
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__percentage
+msgid "Percentage"
+msgstr "النسبة"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__account_move__payment_select__percent
+msgid "Percentage%"
+msgstr "النسبة"
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Print RFQ"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:res.groups,name:custom_purchase_order.purchase_group_procurment_contract
+msgid "Procurment Contract"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__state2__submit
+msgid "Procurment and Contract"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:res.groups,name:custom_purchase_order.purchase_group_project_manager
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Project Manager"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__state2__procurment
+msgid "Project Mananger"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__purchase_amount
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__purchase_amount
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__purchase_amount
+msgid "Purchase Amount"
+msgstr "المجموع الكلي لامر الشراء"
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__ac_purchase_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__ac_purchase_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__ac_purchase_id
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: custom_purchase_order
+#: model:ir.model,name:custom_purchase_order.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "بند أمر الشراء"
+
+#. module: custom_purchase_order
+#: model:ir.module.category,name:custom_purchase_order.category_custom_purchase_order
+msgid "Purchase Order Project"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__purchase_untax_amount
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__purchase_untax_amount
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__purchase_untax_amount
+msgid "Purchase Untax amount"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order_line__qty_retained
+msgid "Qty Retained"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__retained_status
+msgid "Retained Warrenty Status"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__retained_warranty
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order_line__retained_warranty
+msgid "Retained warranty %"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_res_config_settings__retantion_product_id
+msgid "Retantion Product"
+msgstr "منتج الضمان المحتجز"
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__retention
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__retention
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__retention
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.report_invoice_custom
+msgid "Retention"
+msgstr "الضمان المحتجز"
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/custom_account_move.py:0
+#, python-format
+msgid "Select Purchase order before create"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Send PO by Email"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_purchase_order__state2
+msgid "State2"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:res.groups,name:custom_purchase_order.purchase_group_submit
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Submit"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields.selection,name:custom_purchase_order.selection__purchase_order__state2__project
+#: model:res.groups,name:custom_purchase_order.purchase_group_supply_chain_manager
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "Supply Chain Manager"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_bank_statement_line__tax_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_move__tax_id
+#: model:ir.model.fields,field_description:custom_purchase_order.field_account_payment__tax_id
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: custom_purchase_order
+#: code:addons/custom_purchase_order/models/custom_account_move.py:0
+#, python-format
+msgid "The percentage must be greater than zero!"
+msgstr ""
+
+#. module: custom_purchase_order
+#: model_terms:ir.ui.view,arch_db:custom_purchase_order.custom_purchase_order_form
+msgid "procurement and Contract"
+msgstr ""

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit quotation report (from module sale) -->
+        <template id="report_invoice_custom" inherit_id="account.report_invoice_document">
+        <!-- Finds the first table with as class table table-condensed and gives the ability to modify it
+         This will replace everything withing tr (including tr)-->
+
+            <xpath expr="//table[@class='table table-sm']/t/t" position="after">
+                        <tr>
+                            <td>Advance Payment</td>
+                            <td class="text-right"> 
+                                <span t-field="o.adv_payment" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Discount</td>
+                            <td class="text-right">
+                             <span t-field="o.discount_po" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                         </td>
+                        </tr>
+                        <tr>
+                            <td>Retention</td>
+                            <td class="text-right"> 
+                                <span t-field="o.retention" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Net Invoice</b></td>
+                            <td class="text-right">
+                                <b><span t-field="o.net_invoice" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></b>
+                            </td>
+                        </tr>
+            </xpath>
+      
+        </template>
+    </data>
+</odoo>
+

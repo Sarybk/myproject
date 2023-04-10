@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="category_custom_purchase_order">
+        <field name="name">Purchase Order Project</field>
+        <field name="sequence">20</field>
+    </record>
+
+
+     <record id="purchase_group_submit" model="res.groups">
+            <field name="name">Submit</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="category_custom_purchase_order"/>
+    </record>
+
+    <record id="purchase_group_procurment_contract" model="res.groups">
+            <field name="name">Procurment Contract</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="category_custom_purchase_order"/>
+    </record>
+
+    <record id="purchase_group_project_manager" model="res.groups">
+        <field name="name">Project Manager</field>
+        <field name="users" eval="[(4, ref('base.group_user'))]"/>
+        <field name="category_id" ref="category_custom_purchase_order"/>
+    </record>
+
+    <record id="purchase_group_supply_chain_manager" model="res.groups">
+            <field name="name">Supply Chain Manager</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="category_custom_purchase_order"/>
+    </record>
+    <record id="purchase_group_chief_execute_officer" model="res.groups">
+            <field name="name">Chife Execute Officer</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="category_custom_purchase_order"/>
+    </record>
+</odoo>
+
+

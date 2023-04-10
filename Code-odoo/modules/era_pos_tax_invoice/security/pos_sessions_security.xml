@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <!-- Category Close POS Session-->
+    <record model="ir.module.category" id="category_pos_close_sessions">
+        <field name="name">POS Close Sessions</field>
+        <field name="sequence">12</field>
+    </record>
+    <record model="ir.module.category" id="category_pos_order_session">
+        <field name="name">POS Menus</field>
+        <field name="sequence">13</field>
+    </record>
+   
+    <!--group close sessions-->
+    <record id="group_close_control_post_entery" model="res.groups">
+        <field name="name">Close Session and Post Entry </field>
+        <field name="category_id" ref="era_pos_tax_invoice.category_pos_close_sessions"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+    <record id="group_close_control" model="res.groups">
+        <field name="name">Close Control </field>
+        <field name="category_id" ref="era_pos_tax_invoice.category_pos_close_sessions"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+     <record id="group_open_session" model="res.groups">
+        <field name="name">Open Session </field>
+        <field name="category_id" ref="era_pos_tax_invoice.category_pos_close_sessions"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+     <record id="group_coninue_selling" model="res.groups">
+        <field name="name">Coninue Selling </field>
+        <field name="category_id" ref="era_pos_tax_invoice.category_pos_close_sessions"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+    <!-- Group session and order from kanban and menue views-->
+    <record id="group_menu_pos_session" model="res.groups">
+        <field name="name">Session Menu</field>
+        <field name="category_id" ref="era_pos_tax_invoice.category_pos_order_session"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+    <record id="group_menu_pos_order" model="res.groups">
+        <field name="name">Order Menu</field>
+        <field name="category_id" ref="era_pos_tax_invoice.category_pos_order_session"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+</data>
+</odoo>
+

@@ -1,0 +1,48 @@
+<odoo>
+    <!--Template for hotel folio -->
+    <template id="pos_order_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <br />
+                    <br />
+                    <div class="row mt32 mb32">
+                    </div>
+                    <t t-if="is_period == False">
+                        <strong>Date:</strong><span t-esc="date"/> 
+                    </t>
+                     <t t-if="is_period == True">
+                        <strong>Date From:</strong><span t-esc="date_from"/><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+                        <strong>Date To:</strong><span t-esc="date_to"/>  
+                    </t>
+                    <br/>
+                    <br/>
+`                  <t t-foreach="result.keys()" t-as="o">
+                            <strong>Branch:</strong><span t-esc="o"/> 
+                        <table class="table table-bordered mt32">
+                        <thead>
+                        <tr>
+                             <th style="text-align:left; background-color: #f2f0f6;"><strong>Total Sale</strong></th>
+                             <th style="text-align:left; background-color: #f2f0f6;"><strong>Total Includes Tax</strong></th>
+                             <th style="text-align:left; background-color: #f2f0f6;"><strong>Total Witout Tax</strong></th>
+                             <th style="text-align:left; background-color: #f2f0f6;"><strong>Total Banck</strong></th>
+                             <th style="text-align:left; background-color: #f2f0f6;"><strong>Total Cash</strong></th>
+                             <th style="text-align:left; background-color: #f2f0f6;"><strong>Total pos</strong></th>
+                        </tr>
+                        </thead>
+                            <tr>
+                              <td>  <span t-esc="%.2f'% sum([line['amount_total'] for line in result[o] if line['amount_total'] >= 0])"/></td>
+                              <td> <span t-esc="'%.2f'% sum([line['pos_tax'] for line in result[o] if line['pos_tax'] != None])"/></td>
+                              <td> <span t-esc="'%.2f'% sum([line['amount_untax'] for line in result[o] if line['amount_untax'] != None])"/></td>
+                              <td> <span t-esc="len([line['name'] for line in result[o] if line['is_bank'] == True])"/></td>
+                              <td> <span t-esc="len([line['name'] for line in result[o] if line['is_cash_count'] == True])"/></td>
+                              <td> <span t-esc="len([line['config_id'] for line in result[o]])"/> </td>
+                            </tr>
+                     </table>
+                  </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

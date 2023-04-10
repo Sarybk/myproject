@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="view_pos_order_wizard" model="ir.ui.view">
+         <field name="name">pos.order.wizard.view</field>
+         <field name="model">pos.order.wizard</field>
+         <field name="type">form</field>
+         <field name="arch" type="xml">
+             <form>
+                 <group>
+                    <group>
+                      <field name="date" 
+                        attrs="{'invisible': [('is_period', '=', True)], 'required': [('is_period', '=', False)]}"/>
+                      <field name="date_from"
+                         attrs="{'invisible': [('is_period', '=', False)], 'required': [('is_period', '=', True)]}"/>
+                      <field name="date_to"
+                        attrs="{'invisible': [('is_period', '=', False)], 'required': [('is_period', '=', True)]}"/>
+                    </group>
+                    <group>
+                      <field name="branch_id"/>
+                    <field name="is_period"/>
+                    </group>
+                 </group>
+                 <footer>
+                     <button name="action_print" string="Print" type="object" class="oe_highlight"/>
+                     <button string="Cancel" class="btn btn-default" special="cancel"/>
+                 </footer>
+             </form>
+         </field>
+      </record>
+
+      <record id="pos_order_wizard_action" model="ir.actions.act_window">
+        <field name="name">POS Order Wizard</field>
+        <field name="res_model">pos.order.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_pos_order_wizard"/>
+        <field name="target">new</field>
+      </record>
+
+      <menuitem id="menu_pos_order_wizard"
+                   name="POS Order Wizard"
+                   parent="point_of_sale.menu_point_rep"
+                   action="pos_order_wizard_action"/>
+    </data>
+</odoo>

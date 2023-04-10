@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="pos_session_view_form_inherit" model="ir.ui.view">
+           <field name="name">pos.session.view.form.inherit</field>
+           <field name="model">pos.session</field>
+           <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//button[@id='end_session_opened']" position="replace">
+                    
+                    <button id="end_session_opened" name="action_pos_session_closing_control" type="object" string="End of Session" attrs="{'invisible' : ['|', ('cash_control', '=', False),('state', '!=', 'opened')]}" class="oe_highlight" groups="era_pos_tax_invoice.group_close_control"/>
+                    <!-- <button id="validate_closing_control" name="action_pos_session_validate" type="object" string="Close Session &amp; Post Entries" states="closing_control" class="oe_highlight"/> -->
+               </xpath>
+               <xpath expr="//button[@id='validate_opened']" position="replace">
+                    <button id="validate_opened" name="action_pos_session_closing_control" type="object" string="Close Session &amp; Post Entries" attrs="{'invisible' : ['|', ('cash_control', '=', True),('state', '!=', 'opened')]}" class="oe_highlight" groups="era_pos_tax_invoice.group_close_control_post_entery"/>
+                </xpath> 
+                 <xpath expr="//button[@name='open_cashbox_pos']" position="replace">
+                    <button name="open_cashbox_pos" type="object" string="Open Session" attrs="{'invisible' : ['|', ('cash_control', '=', False), ('state', '!=', 'new_session')]}" class="oe_highlight" context="{'balance': 'start'}" groups="era_pos_tax_invoice.group_open_session"/>
+                </xpath>
+                <xpath expr="//button[@name='open_cashbox_pos']" position="replace">
+                   <button name="open_frontend_cb" type="object" string="Continue Selling" attrs="{'invisible' : ['|', ('rescue', '=', True), ('state', 'not in', ['opening_control', 'opened'])]}" groups="era_pos_tax_invoice.group_coninue_selling"/>
+                </xpath> 
+                
+                <xpath expr="//button[@name='action_view_order']" position="replace">
+                    <button name="action_view_order" class="oe_stat_button" icon="fa-shopping-basket" type="object" 
+                        groups="era_pos_tax_invoice.group_menu_pos_session">
+                            <field name="order_count" widget="statinfo" string="Orders"/>
+                    </button>      
+                </xpath> 
+
+                <xpath expr="//button[@name='action_show_payments_list']" position="replace">
+                     <button name="action_show_payments_list" type="object" class="oe_stat_button" icon="fa-dollar" 
+                        groups="era_pos_tax_invoice.group_menu_pos_session">
+                         <field name="total_payments_amount" widget="statinfo" string="Payments"/>
+                      </button>
+                </xpath>
+                 <xpath expr="//button[@id='end_session_opened']" position="replace">
+                     <button id="end_session_opened" name="action_pos_session_closing_control" type="object" string="End of Session" attrs="{'invisible' : ['|', ('cash_control', '=', False),('state', '!=', 'opened')]}" class="oe_highlight" groups="era_pos_tax_invoice.group_close_control_post_entery"/>
+                </xpath>
+
+                 <xpath expr="//field[@name='stop_at']" position="after">
+                   <field name="shift_time" position="after"/>
+                </xpath>
+                 <xpath expr="//field[@name='stop_at']" position="after">
+                   <field name="priority" position="after"/>
+                </xpath> 
+                
+           </field>
+       </record>
+    </data>
+</odoo>
+                    
