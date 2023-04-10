@@ -1,0 +1,2 @@
+update res_users set password='123' where id=2;
+

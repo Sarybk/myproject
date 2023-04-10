@@ -1,0 +1,57 @@
+sudo apt-get update
+sudo apt-get install postgresql-14 postgresql-server-dev-14
+
+
+Check if there are any differences in the config files.
+
+diff /etc/postgresql/13/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf
+diff /etc/postgresql/13/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf
+
+Stop the PostgreSQL service.
+
+sudo systemctl stop postgresql.service
+Log in as the postgres user.
+
+sudo su - postgres
+Check clusters (notice the --check argument, this will not change any data).
+
+/usr/lib/postgresql/14/bin/pg_upgrade \
+  --old-datadir=/var/lib/postgresql/13/main \
+  --new-datadir=/var/lib/postgresql/14/main \
+  --old-bindir=/usr/lib/postgresql/13/bin \
+  --new-bindir=/usr/lib/postgresql/14/bin \
+  --old-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
+  --new-options '-c config_file=/etc/postgresql/14/main/postgresql.conf' \
+  --check
+
+Migrate the data (without the --check argument).
+
+/usr/lib/postgresql/14/bin/pg_upgrade \
+  --old-datadir=/var/lib/postgresql/13/main \
+  --new-datadir=/var/lib/postgresql/14/main \
+  --old-bindir=/usr/lib/postgresql/13/bin \
+  --new-bindir=/usr/lib/postgresql/14/bin \
+  --old-options '-c config_file=/etc/postgresql/13/main/postgresql.conf' \
+  --new-options '-c config_file=/etc/postgresql/14/main/postgresql.conf'
+Go back to the regular user.
+
+exit
+Swap the ports for the old and new PostgreSQL versions.
+
+sudo vim /etc/postgresql/14/main/postgresql.conf
+# ...and change "port = 5433" to "port = 5432"
+
+sudo vim /etc/postgresql/13/main/postgresql.conf
+# ...and change "port = 5432" to "port = 5433"
+Start the PostgreSQL service.
+
+sudo systemctl start postgresql.service
+Log in as the postgres user again.
+
+sudo su - postgres
+Check the new PostgreSQL version.
+
+psql -c "SELECT version();"
+Run the recommended vacuumdb command:
+
+/usr/lib/postgresql/14/bin/vacuumdb --all --analyze-in-stages

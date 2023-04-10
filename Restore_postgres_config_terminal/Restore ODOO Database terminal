@@ -1,0 +1,18 @@
+
+sudo su postgres
+createdb -O odoo db_faden_8_march_2023
+
+psql db_faden_8_march_2023 < dump.sql
+
+
+
+
+
+update res_users set password='123' where id=2;
+
+update res_users set password = 123' where login = 'admin';
+
+
+update end_of_service_award set state = 'draft' where id = 10;
+
+update rental_contract set state = 'draft' where id = 2;
